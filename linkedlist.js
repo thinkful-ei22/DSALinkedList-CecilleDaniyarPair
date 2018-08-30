@@ -217,8 +217,29 @@ function findLast(list){
   return item;
 }
 
+function WhatDoesThisProgramDo(list) {
+  let current = list.head;
+  console.log(current);
+  while (current !== null) {
+    let newNode = current;
+    while (newNode.next !== null) {
+      if (newNode.next.value === current.value) {
+        newNode.next = newNode.next.next;
+      }
+      else {
+        newNode = newNode.next;
+      }
+    }
+    current = current.next;
+    console.log(current);
+  }
+}
+// console.log(sll);
+WhatDoesThisProgramDo(sll);
+
+
 // display(JSON.stringify(sll, null, 2));
 //console.log(size(sll));
 // console.log(isEmpty(sll));
 // console.log(findPrevious(sll, 'Ice Cream'));
-console.log(findLast(sll));
+// console.log(findLast(sll));
