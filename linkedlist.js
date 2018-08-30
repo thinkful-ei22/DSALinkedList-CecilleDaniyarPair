@@ -247,12 +247,25 @@ function reverse(head) {
    return temp;
  }
 
+ //input: A - B - C - D - E - F - G
+ //output: E
+
+function thirdFromEnd(list) {
+  const reversedList = reverse(list);
+  const listItem = reversedList;
+  const thirdIndex = listItem.next.next.value;
+  return thirdIndex;
+}
+
+// console.log(JSON.stringify(sll, null, 2))
+
 // display(JSON.stringify(sll, null, 2));
 //console.log(size(sll));
 // console.log(isEmpty(sll));
 // console.log(findPrevious(sll, 'Ice Cream'));
 // console.log(findLast(sll));
-console.log(reverse(sll.head))
+// console.log(reverse(sll.head))
+// console.log(thirdFromEnd(sll.head))
 
 //Supplemental Value Answers
 //1. Duplicates every value in exception to the head.
