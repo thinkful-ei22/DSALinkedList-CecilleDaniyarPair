@@ -27,7 +27,7 @@ class linkedList {
     }
   }
 
-  
+
 
   insertBefore(newItem, existingItem){
     if(this.head === null){
@@ -35,22 +35,38 @@ class linkedList {
     }
     let currNode = this.head;
     let prevNode = this.head;
-    let nextNode = this.head;
 
-    while(currNode.next.value !== existingItem.value) {
-      currNode = currNode.next;
-      nextNode = currNode.next.next;
+    while(currNode.value !== existingItem.value) {
       prevNode = currNode;
+      currNode = currNode.next;
       if (currNode.next === null){
         console.log('item not found!');
         return;
-      }  
+      }
     }
-    currNode = new _Node(newItem, existingItem);
-    existingItem.next = nextNode;
-    prevNode.next = currNode;
+    // A -> B -> D
+    prevNode.next = new _Node(newItem, currNode);
   }
 
+  // insertAfter(newItem, existingItem){
+  //   if(this.head === null){
+  //     this.insertFirst(newItem);
+  //   }
+  //   let currNode = this.head;
+  //   //let nextNode = this.head;
+  //
+  //   while(currNode.next.value !== existingItem.value){
+  //     currNode = currNode.next;
+  //
+  //     if(currNode.next === null){
+  //       console.log('item not found!');
+  //       return;
+  //     }
+  //   }
+  //
+  //
+  //
+  // }
 
   find(item) {
     //start at the head
@@ -113,7 +129,7 @@ const main = function() {
   sll.insertLast('Starbuck');
   sll.insertLast('Tauhida');
 //   sll.remove('squirrel');
-  sll.insertBefore('Athena', {value: 'Helo', next: 'Husker'});
+  sll.insertBefore('Athena', { value: 'Helo' });
 
 
   console.log(JSON.stringify(sll, null, 2));
