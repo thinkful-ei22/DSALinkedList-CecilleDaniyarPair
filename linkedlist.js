@@ -237,7 +237,7 @@ function WhatDoesThisProgramDo(list) {
 // console.log(JSON.stringify(sll, null, 2));
 // WhatDoesThisProgramDo(sll);
 
-const reverse = (head) => {
+function reverse(head) {
    if (!head || !head.next) {
      return head;
    }
@@ -252,7 +252,7 @@ const reverse = (head) => {
 // console.log(isEmpty(sll));
 // console.log(findPrevious(sll, 'Ice Cream'));
 // console.log(findLast(sll));
-// console.log(reverse(sll.head))
+console.log(reverse(sll.head))
 
 //Supplemental Value Answers
 //1. Duplicates every value in exception to the head.
