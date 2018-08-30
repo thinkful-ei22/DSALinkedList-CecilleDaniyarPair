@@ -55,10 +55,10 @@ class linkedList {
     }
     let currNode = this.head;
     //let nextNode = this.head;
-  
+
     while(currNode.value !== existingItem.value){
       currNode = currNode.next;
-  
+
       if(currNode.next === null){
         console.log('item not found!');
         return;
@@ -66,6 +66,31 @@ class linkedList {
     }
     currNode.next = new _Node(newItem, currNode.next);
   }
+    //  A - C - D
+    //input: insertAt(2) e.g - insert B at position 2
+    //output: A - B - C - D
+    insertAt(position, newItem) {
+      if(this.head === null){
+        this.insertFirst(newItem);
+      }
+       if(position === 0) {
+         this.insertFirst(newItem);
+       }
+      //Create a counter to count the iterations
+      let counter = 0;
+      let currNode = this.head;
+
+      while(counter !== position) {
+        currNode = currNode.next;
+        counter++
+
+        if(currNode.next === null){
+          console.log('item not found!');
+          return;
+        }
+      }
+      this.insertBefore(newItem, currNode);
+    }
 
   find(item) {
     //start at the head
@@ -130,6 +155,8 @@ const main = function() {
   //   sll.remove('squirrel');
   sll.insertBefore('Athena', { value: 'Helo' });
   sll.insertAfter('Hotdog', {value: 'Helo'});
+  //JSON.stringify throws an error if you do 0 because it probably doesn't adhere to zero-index
+  sll.insertAt(1, 'Ice Cream');
 
 
   console.log(JSON.stringify(sll, null, 2));
