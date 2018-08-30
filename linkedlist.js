@@ -257,6 +257,22 @@ function thirdFromEnd(list) {
   return thirdIndex;
 }
 
+function middleOfList(list) {
+  const listItem = list.head;
+  const size = size(list);
+  const counter;
+  const divideByTwo = Math.floor(size / 2);
+  const evenLength = divideByTwo % 2 === 0;
+  const oddLength = divideByTwo % 2 !== 0;
+
+  if(evenLength) {
+    while(listItem.next !== null) {
+
+    }
+  }
+
+}
+
 // console.log(JSON.stringify(sll, null, 2))
 
 // display(JSON.stringify(sll, null, 2));
