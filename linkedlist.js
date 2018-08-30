@@ -66,31 +66,31 @@ class linkedList {
     }
     currNode.next = new _Node(newItem, currNode.next);
   }
-    //  A - C - D
-    //input: insertAt(2) e.g - insert B at position 2
-    //output: A - B - C - D
-    insertAt(position, newItem) {
-      if(this.head === null){
-        this.insertFirst(newItem);
-      }
-       if(position === 0) {
-         this.insertFirst(newItem);
-       }
-      //Create a counter to count the iterations
-      let counter = 0;
-      let currNode = this.head;
-
-      while(counter !== position) {
-        currNode = currNode.next;
-        counter++
-
-        if(currNode.next === null){
-          console.log('item not found!');
-          return;
-        }
-      }
-      this.insertBefore(newItem, currNode);
+  //  A - C - D
+  //input: insertAt(2) e.g - insert B at position 2
+  //output: A - B - C - D
+  insertAt(position, newItem) {
+    if(this.head === null){
+      this.insertFirst(newItem);
     }
+    if(position === 0) {
+      this.insertFirst(newItem);
+    }
+    //Create a counter to count the iterations
+    let counter = 0;
+    let currNode = this.head;
+
+    while(counter !== position) {
+      currNode = currNode.next;
+      counter++;
+
+      if(currNode.next === null){
+        console.log('item not found!');
+        return;
+      }
+    }
+    this.insertBefore(newItem, currNode);
+  }
 
   find(item) {
     //start at the head
@@ -143,9 +143,9 @@ class linkedList {
   }
 }
 
-const main = function() {
-  let sll = new linkedList();
+let sll = new linkedList();
 
+const main = function() {
   sll.insertLast('Apollo');
   sll.insertLast('Boomer');
   sll.insertLast('Helo');
@@ -160,7 +160,33 @@ const main = function() {
   sll.remove('Tauhida');
 
 
-  console.log(JSON.stringify(sll, null, 2));
+  // console.log(JSON.stringify(sll, null, 2));
 };
 
 main();
+
+function display(list){
+  console.log(list);
+}
+
+function size(list) {
+  let listItem = list.head;
+  if(!listItem){
+    return 0;
+  }
+  //size starts at 1 because linkedList class is always
+  //initiated with a head in it.
+  let size = 1;
+  while(listItem.next !== null){
+    listItem = listItem.next;
+    size++;
+
+  }
+  return size+1;
+}
+
+let newList = new linkedList();
+console.log(newList);
+
+// display(JSON.stringify(sll, null, 2));
+//console.log(size(sll));
