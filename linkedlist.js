@@ -48,25 +48,24 @@ class linkedList {
     prevNode.next = new _Node(newItem, currNode);
   }
 
-  // insertAfter(newItem, existingItem){
-  //   if(this.head === null){
-  //     this.insertFirst(newItem);
-  //   }
-  //   let currNode = this.head;
-  //   //let nextNode = this.head;
-  //
-  //   while(currNode.next.value !== existingItem.value){
-  //     currNode = currNode.next;
-  //
-  //     if(currNode.next === null){
-  //       console.log('item not found!');
-  //       return;
-  //     }
-  //   }
-  //
-  //
-  //
-  // }
+  // A -> B -> D
+  insertAfter(newItem, existingItem){
+    if(this.head === null){
+      this.insertFirst(newItem);
+    }
+    let currNode = this.head;
+    //let nextNode = this.head;
+  
+    while(currNode.value !== existingItem.value){
+      currNode = currNode.next;
+  
+      if(currNode.next === null){
+        console.log('item not found!');
+        return;
+      }
+    }
+    currNode.next = new _Node(newItem, currNode.next);
+  }
 
   find(item) {
     //start at the head
@@ -128,8 +127,9 @@ const main = function() {
   sll.insertLast('Husker');
   sll.insertLast('Starbuck');
   sll.insertLast('Tauhida');
-//   sll.remove('squirrel');
+  //   sll.remove('squirrel');
   sll.insertBefore('Athena', { value: 'Helo' });
+  sll.insertAfter('Hotdog', {value: 'Helo'});
 
 
   console.log(JSON.stringify(sll, null, 2));
