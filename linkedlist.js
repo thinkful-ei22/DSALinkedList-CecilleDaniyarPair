@@ -234,12 +234,30 @@ function WhatDoesThisProgramDo(list) {
     console.log(current);
   }
 }
-// console.log(sll);
-WhatDoesThisProgramDo(sll);
+// console.log(JSON.stringify(sll, null, 2));
+// WhatDoesThisProgramDo(sll);
 
+const reverse = (head) => {
+   if (!head || !head.next) {
+     return head;
+   }
+   let temp = reverse(head.next);
+   head.next.next = head;
+   head.next = undefined;
+   return temp;
+ }
 
 // display(JSON.stringify(sll, null, 2));
 //console.log(size(sll));
 // console.log(isEmpty(sll));
 // console.log(findPrevious(sll, 'Ice Cream'));
 // console.log(findLast(sll));
+// console.log(reverse(sll.head))
+
+//Supplemental Value Answers
+//1. Duplicates every value in exception to the head.
+//   We actually thought it was skipping through every duplicate, but
+//   upon closer inspection - it was just inherently duplicating. the
+//   runtime of this algorithm is 0(n) - the larger the size of the
+//   input - the longer the runtime and the more it has to iterate
+//2. Wrote function reverse.
