@@ -188,5 +188,24 @@ function size(list) {
 let newList = new linkedList();
 console.log(newList);
 
+function isEmpty(list) {
+  return list.head === null
+}
+
+function findPrevious(list, listItem) {
+  //find the list Item
+  let item = list.head;
+  while(item.next.value !== listItem) {
+    item = item.next;
+    if(item.next === null) {
+      console.log('cannot find item!');
+      return;
+    }
+  }
+  return item.value;
+}
+
 // display(JSON.stringify(sll, null, 2));
 //console.log(size(sll));
+// console.log(isEmpty(sll));
+console.log(findPrevious(sll, 'Ice Cream'));
