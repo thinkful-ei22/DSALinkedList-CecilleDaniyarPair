@@ -189,7 +189,7 @@ let newList = new linkedList();
 console.log(newList);
 
 function isEmpty(list) {
-  return list.head === null
+  return list.head === null;
 }
 
 function findPrevious(list, listItem) {
@@ -205,7 +205,20 @@ function findPrevious(list, listItem) {
   return item.value;
 }
 
+function findLast(list){
+  let item = list.head;
+  if (!item){
+    console.log('your list is empty');
+    return;
+  }
+  while(item.next!==null){
+    item=item.next;
+  }
+  return item;
+}
+
 // display(JSON.stringify(sll, null, 2));
 //console.log(size(sll));
 // console.log(isEmpty(sll));
-console.log(findPrevious(sll, 'Ice Cream'));
+// console.log(findPrevious(sll, 'Ice Cream'));
+console.log(findLast(sll));
