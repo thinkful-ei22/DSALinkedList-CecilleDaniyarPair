@@ -1,7 +1,8 @@
 class _Node {
-  constructor(value, next) {
+  constructor(value, next, previous) {
     this.value = value;
     this.next = next;
+    this.previous = previous;
   }
 }
 
@@ -26,8 +27,6 @@ class linkedList {
       tempNode.next = new _Node(item, null);
     }
   }
-
-
 
   insertBefore(newItem, existingItem){
     if(this.head === null){
@@ -142,6 +141,32 @@ class linkedList {
     previousNode.next = currNode.next;
   }
 }
+
+class doublyLinkedList {
+  constructor() {
+    this.head = null;
+    this.tail = null;
+  }
+
+  insertFirstItem(item) {
+    this.head = new _Node(item, this.head)
+  }
+
+  insertLast(item) {
+    this.tail = new _Node(item, this.tail)
+  }
+}
+
+let dll = new doublyLinkedList();
+
+const mainDll = function() {
+  dll.insertFirstItem('Milk');
+  dll.insertLast('Cookies');
+
+  console.log(JSON.stringify(dll, null, 2))
+}
+
+mainDll();
 
 let sll = new linkedList();
 
@@ -258,22 +283,11 @@ function thirdFromEnd(list) {
 }
 
 function middleOfList(list) {
-  const listItem = list.head;
-  const size = size(list);
-  const counter;
-  const divideByTwo = Math.floor(size / 2);
-  const evenLength = divideByTwo % 2 === 0;
-  const oddLength = divideByTwo % 2 !== 0;
 
-  if(evenLength) {
-    while(listItem.next !== null) {
-
-    }
-  }
 
 }
 
-// console.log(JSON.stringify(sll, null, 2))
+console.log(JSON.stringify(sll, null, 2))
 
 // display(JSON.stringify(sll, null, 2));
 //console.log(size(sll));
