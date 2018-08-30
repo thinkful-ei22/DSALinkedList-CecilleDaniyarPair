@@ -157,6 +157,7 @@ const main = function() {
   sll.insertAfter('Hotdog', {value: 'Helo'});
   //JSON.stringify throws an error if you do 0 because it probably doesn't adhere to zero-index
   sll.insertAt(1, 'Ice Cream');
+  sll.remove('Tauhida');
 
 
   console.log(JSON.stringify(sll, null, 2));
